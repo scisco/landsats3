@@ -4,6 +4,8 @@ http://www.awaresystems.be/imaging/tiff/faq.html#q13
 http://www.remotesensing.org/geotiff/spec/geotiff6.html
 https://github.com/blink1073/tifffile
 """
+import zlib
+import numpy as np
 from struct import unpack
 from http.client import HTTPConnection
 
@@ -19,13 +21,6 @@ class Reader(object):
         self.get_tiff_header()
         self.get_tags()
         self.geo_ascii_params = ''.join([i[0].decode('UTF-8') for i in self.geo_ascii_params])
-
-        print(self.ifd_offset)
-        print(self.image_width)
-        print(self.image_length)
-        print(self.geo_ascii_params)
-        print(self.geo_key_directory)
-        print(len(self.tile_offsets))
 
     def get_range(self, start, end):
         self.conn.request('GET', self.url, headers={'Range': 'bytes={0}-{1}'.format(start, end)})
@@ -80,6 +75,14 @@ class Reader(object):
         tiles_across = (self.image_width + (self.tile_width - 1)) / self.tile_width
         tiles_down = (self.image_length + (self.tile_length - 1)) / self.tile_length
         self.tiles_in_image = tiles_across * tiles_down
+
+    def get_tiles(self, tile_number):
+        offset = self.tile_offsets[tile_number][0]
+        count = self.tile_byte_counts[tile_number][0]
+        tile_bytes = self.get_range(offset, offset + count)
+        a = np.fromstring(zlib.decompress(tile_bytes),
+                          dtype=TIFF_DATA_TYPES[3]).reshape((self.tile_width, self.tile_length))
+        return a
 
 
 # key is dtype, value is the number of bytes
@@ -204,4 +207,5 @@ TIFF_TAGS = {
 }
 
 if __name__ == '__main__':
-    Reader('LC80450342015359LGN00', 4)
+    r = Reader('LC80450342015359LGN00', 4)
+    print(r.get_tiles(3))

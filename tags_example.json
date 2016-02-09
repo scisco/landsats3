@@ -1,0 +1,103 @@
+[{
+    "name": "image_width",
+    "offset": 7761,
+    "id": 256,
+    "dtype": 3,
+    "count": 1
+}, {
+    "name": "image_length",
+    "offset": 7901,
+    "id": 257,
+    "dtype": 3,
+    "count": 1
+}, {
+    "name": "bits_per_sample",
+    "offset": 16,
+    "id": 258,
+    "dtype": 3,
+    "count": 1
+}, {
+    "name": "compression",
+    "offset": 8,
+    "id": 259,
+    "dtype": 3,
+    "count": 1
+}, {
+    "name": "photometric",
+    "offset": 1,
+    "id": 262,
+    "dtype": 3,
+    "count": 1
+}, {
+    "name": "samples_per_pixel",
+    "offset": 1,
+    "id": 277,
+    "dtype": 3,
+    "count": 1
+}, {
+    "name": "planar_configuration",
+    "offset": 1,
+    "id": 284,
+    "dtype": 3,
+    "count": 1
+}, {
+    "name": "predictor",
+    "offset": 2,
+    "id": 317,
+    "dtype": 3,
+    "count": 1
+}, {
+    "name": "tile_width",
+    "offset": 512,
+    "id": 322,
+    "dtype": 3,
+    "count": 1
+}, {
+    "name": "tile_length",
+    "offset": 512,
+    "id": 323,
+    "dtype": 3,
+    "count": 1
+}, {
+    "name": "tile_offsets",
+    "offset": 1242,
+    "id": 324,
+    "dtype": 4,
+    "count": 256
+}, {
+    "name": "tile_byte_counts",
+    "offset": 218,
+    "id": 325,
+    "dtype": 4,
+    "count": 256
+}, {
+    "name": "sample_format",
+    "offset": 1,
+    "id": 339,
+    "dtype": 3,
+    "count": 1
+}, {
+    "name": "model_pixel_scale",
+    "offset": 2266,
+    "id": 33550,
+    "dtype": 12,
+    "count": 3
+}, {
+    "name": "model_tie_point",
+    "offset": 2290,
+    "id": 33922,
+    "dtype": 12,
+    "count": 6
+}, {
+    "name": "geo_key_directory",
+    "offset": 2338,
+    "id": 34735,
+    "dtype": 3,
+    "count": 32
+}, {
+    "name": "geo_ascii_params",
+    "offset": 2402,
+    "id": 34737,
+    "dtype": 2,
+    "count": 30
+}]
